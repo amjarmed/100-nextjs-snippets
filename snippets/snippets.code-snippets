@@ -1,88 +1,125 @@
 {
-  "Basic Next.js Page Component": {
-    "prefix": "nextjs-page",
+  "nextjs-page": {
+    "prefix": "nexpage",
     "body": [
       "import React from 'react';",
       "",
-      "const ${1:PageName} = () => {",
-      "  return (",
-      "    <div>",
-      "      <h1>${1:PageName}</h1>",
-      "      <p>This is the ${1:PageName} page.</p>",
-      "    </div>",
-      "  );",
+      "const $1 = () => {",
+      "  return <div>$2</div>;",
       "};",
       "",
-      "export default ${1:PageName};"
+      "export default $1;"
     ],
-    "description": "Creates a basic Next.js page component."
+    "description": "Create a basic Next.js page component."
   },
-  "Next.js API Route": {
-    "prefix": "nextjs-api",
+  "nextjs-api-route": {
+    "prefix": "nexapi",
     "body": [
-      "export default function handler(req, res) {",
-      "  res.status(200).json({ message: 'Hello, API!' });",
+      "import { NextApiRequest, NextApiResponse } from 'next';",
+      "",
+      "export default function handler(req: NextApiRequest, res: NextApiResponse) {",
+      "  res.status(200).json({ message: 'Hello, Next.js!' });",
       "}"
     ],
-    "description": "Creates a basic Next.js API route."
+    "description": "Create a basic Next.js API route."
   },
-  "Next.js Dynamic Route": {
-    "prefix": "nextjs-dynamic-route",
+  "nextjs-getstaticprops": {
+    "prefix": "nexgetstaticprops",
+    "body": [
+      "export async function getStaticProps() {",
+      "  return {",
+      "    props: {}, // will be passed to the page component as props",
+      "  };",
+      "}"
+    ],
+    "description": "Create a getStaticProps function."
+  },
+  "nextjs-getstaticpaths": {
+    "prefix": "nexgetstaticpaths",
     "body": [
       "export async function getStaticPaths() {",
-      "  const paths = [{ params: { id: '1' } }, { params: { id: '2' } }];",
-      "  return { paths, fallback: false };",
-      "}",
-      "",
-      "export async function getStaticProps({ params }) {",
-      "  return { props: { id: params.id } };",
-      "}",
-      "",
-      "export default function Page({ id }) {",
-      "  return <h1>Page with ID: {id}</h1>;",
+      "  return {",
+      "    paths: [],",
+      "    fallback: false",
+      "  };",
       "}"
     ],
-    "description": "Creates a Next.js dynamic route with getStaticPaths and getStaticProps."
+    "description": "Create a getStaticPaths function."
   },
-  "Next.js getServerSideProps": {
-    "prefix": "nextjs-ssr",
+  "nextjs-getserversideprops": {
+    "prefix": "nexgetserversideprops",
     "body": [
       "export async function getServerSideProps(context) {",
-      "  const res = await fetch('https://api.example.com/data');",
-      "  const data = await res.json();",
-      "  return { props: { data } };",
-      "}",
-      "",
-      "export default function Page({ data }) {",
-      "  return (",
-      "    <div>",
-      "      <h1>Server-side Data</h1>",
-      "      <pre>{JSON.stringify(data, null, 2)}</pre>",
-      "    </div>",
-      "  );",
+      "  return {",
+      "    props: {}, // will be passed to the page component as props",
+      "  };",
       "}"
     ],
-    "description": "Sets up server-side rendering with getServerSideProps."
+    "description": "Create a getServerSideProps function."
   },
-  "Next.js Head Component": {
-    "prefix": "nextjs-head",
+  "nextjs-useeffect": {
+    "prefix": "nexuseeffect",
+    "body": [
+      "import { useEffect } from 'react';",
+      "",
+      "useEffect(() => {",
+      "  $1",
+      "}, []);"
+    ],
+    "description": "Basic useEffect hook."
+  },
+  "nextjs-usecontext": {
+    "prefix": "nexusecontext",
+    "body": [
+      "import { useContext } from 'react';",
+      "import { $1Context } from '../context/$1Context';",
+      "",
+      "const $1 = () => {",
+      "  const context = useContext($1Context);",
+      "  return <div>{context}</div>;",
+      "};"
+    ],
+    "description": "useContext hook with a custom context."
+  },
+  "nextjs-head-component": {
+    "prefix": "nexhead",
     "body": [
       "import Head from 'next/head';",
       "",
-      "export default function ${1:PageName}() {",
-      "  return (",
-      "    <>",
-      "      <Head>",
-      "        <title>${2:Page Title}</title>",
-      "        <meta name='description' content='${3:Page Description}' />",
-      "      </Head>",
-      "      <div>",
-      "        <h1>${1:PageName}</h1>",
-      "      </div>",
-      "    </>",
-      "  );",
-      "}"
+      "const $1 = () => (",
+      "  <Head>",
+      "    <title>$2</title>",
+      "    <meta name='description' content='$3' />",
+      "  </Head>",
+      ");",
+      "",
+      "export default $1;"
     ],
-    "description": "Creates a Next.js head component for setting meta tags and title."
+    "description": "Create a Head component for SEO."
+  },
+  "nextjs-link-component": {
+    "prefix": "nexlink",
+    "body": [
+      "import Link from 'next/link';",
+      "",
+      "<Link href='$1'>",
+      "  <a>$2</a>",
+      "</Link>"
+    ],
+    "description": "Create a Link component for Next.js navigation."
+  },
+  "nextjs-image-component": {
+    "prefix": "neximage",
+    "body": [
+      "import Image from 'next/image';",
+      "",
+      "<Image",
+      "  src='$1'",
+      "  alt='$2'",
+      "  width={$3}",
+      "  height={$4}",
+      "/>"
+    ],
+    "description": "Create a Next.js Image component with required props."
   }
 }

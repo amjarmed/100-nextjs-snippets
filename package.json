@@ -1,6 +1,6 @@
 {
-  "name": "100-nextjs-snippets-",
-  "displayName": "100 Nextjs Snippets ",
+  "name": "100-nextjs-snippets",
+  "displayName": "100 Nextjs Snippets",
   "description": "A collection of 100 helpful Next.js snippets to speed up your development workflow.",
   "version": "0.0.1",
   "engines": {
@@ -12,12 +12,42 @@
   "contributes": {
     "snippets": [
       {
-        "language": "\"javascript\",\"typescript\",\"reactjs\",\"nextjs\"",
+        "language": "javascript",
+        "path": "./snippets/snippets.code-snippets"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/snippets.code-snippets"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/snippets.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
         "path": "./snippets/snippets.code-snippets"
       }
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amjarmed/100-nextjs-snippets"
+  },
+  "bugs": {
+    "url": "https://github.com/amjarmed/100-nextjs-snippets/issues"
+  },
+  "homepage": "https://github.com/amjarmed/100-nextjs-snippets#readme",
+  "publisher": "Mohamed Amjar",
+  "license": "MIT",
+  "icon": "icon.png",
+  "keywords": [
+    "nextjs",
+    "react",
+    "typescript",
+    "snippets",
+    "javascript"
+  ],
   "dependencies": {
-    "100-nextjs-snippets-": "file:"
+    "100-nextjs-snippets": "file:"
   }
 }
