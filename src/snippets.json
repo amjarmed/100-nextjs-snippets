@@ -1,0 +1,50 @@
+{
+  "Next.js Page Component": {
+    "prefix": "nextPage",
+    "body": [
+      "import React from 'react';",
+      "import Head from 'next/head';",
+      "",
+      "const $1 = () => {",
+      "  return (",
+      "    <>",
+      "      <Head>",
+      "        <title>$2</title>",
+      "      </Head>",
+      "      <div>",
+      "        $3",
+      "      </div>",
+      "    </>",
+      "  );",
+      "};",
+      "",
+      "export default $1;"
+    ],
+    "description": "Next.js Functional Page Component"
+  },
+  "Next.js Link": {
+    "prefix": "nextLink",
+    "body": [
+      "<Link href=\"$1\">",
+      "  <a>$2</a>",
+      "</Link>"
+    ],
+    "description": "Next.js Link component"
+  },
+  "Next.js getStaticProps": {
+    "prefix": "getStaticProps",
+    "body": [
+      "export const getStaticProps = async () => {",
+      "  const res = await fetch('$1');",
+      "  const data = await res.json();",
+      "",
+      "  return {",
+      "    props: {",
+      "      data,",
+      "    },",
+      "  };",
+      "};"
+    ],
+    "description": "Next.js getStaticProps function"
+  }
+}

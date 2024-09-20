@@ -1,7 +1,7 @@
 {
   "name": "100-nextjs-snippets",
   "displayName": "100 Nextjs Snippets ",
-  "description": "this extention includes 100 nextjs snippets",
+  "description": "A set of 100 useful Next.js code snippets",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.93.0"
