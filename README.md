@@ -100,5 +100,3 @@ This extension is licensed under the [MIT License](LICENSE).
 - Replace the `https://github.com/your-repo/100-nextjs-snippets` link with your actual GitHub repository.
 - Add more snippets in the "Snippets" section as needed.
 - Update version numbers and any relevant metadata based on your project.
-
-This **README.md** provides users with installation instructions, usage examples, and a quick overview of the features in your extension.
