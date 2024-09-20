@@ -1,8 +1,8 @@
-# 100 Next.js Snippets
+# 100 Nextjs Snippets
 
 ![version](https://img.shields.io/badge/version-0.0.1-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
-A collection of **100+ useful Next.js snippets** designed to speed up your development workflow. This extension provides quick, easy access to frequently used Next.js code structures.
+A collection of **100+ useful Nextjs snippets** designed to speed up your development workflow. This extension provides quick, easy access to frequently used Next.js code structures.
 
 ## Features
 
@@ -18,7 +18,7 @@ Here are some of the snippets included:
 ### Page Component
 
 ```typescript
-nextPage → Creates a Next.js page with a Head component and basic structure
+nexpage → Creates a Next.js page with a Head component and basic structure
 ```
 
 ```typescript
@@ -42,7 +42,7 @@ export default HomePage;
 ### Link Component
 
 ```typescript
-nextLink → Adds a Next.js <Link> component for navigation
+nexlink → Adds a Next.js <Link> component for navigation
 ```
 
 ```jsx
@@ -51,35 +51,16 @@ nextLink → Adds a Next.js <Link> component for navigation
 </Link>
 ```
 
-### getStaticProps
-
-```typescript
-getStaticProps → Fetch data at build time using getStaticProps
-```
-
-```typescript
-export const getStaticProps = async () => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-  const data = await res.json();
-
-  return {
-    props: {
-      posts: data,
-    },
-  };
-};
-```
-
 ## Installation
 
 1. Open **VSCode**.
 2. Go to the **Extensions** view by clicking on the Extensions icon in the Activity Bar or pressing `Ctrl+Shift+X`.
-3. Search for `100 Next.js Snippets`.
+3. Search for `100 Nextjs Snippets`.
 4. Click **Install**.
 
 ## How to Use
 
-After installation, simply type the snippet prefix (e.g., `nextPage`, `nextLink`, `getStaticProps`) and press `Tab` to insert the snippet into your file.
+After installation, simply type the snippet prefix (e.g., `nexpage`, `nexlink`) and press `Tab` to insert the snippet into your file.
 
 You can find the full list of snippets by opening the command palette (`Ctrl+Shift+P`) and searching for "Insert Snippet".
 
