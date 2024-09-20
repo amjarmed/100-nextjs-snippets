@@ -2,7 +2,7 @@
 
 ![version](https://img.shields.io/badge/version-0.0.1-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
-A collection of **All In (React, Nexjs, and Redux )** **100+ useful Nextjs snippets** designed to speed up your development workflow. This extension provides quick, easy access to frequently used Next.js code structures.
+A collection of **All In One (React, Nexjs, and Redux )** **100+ useful Nextjs snippets** designed to speed up your development workflow. This extension provides quick, easy access to frequently used Next.js code structures.
 
 ## Features
 
