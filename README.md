@@ -1,65 +1,104 @@
-# 100-nextjs-snippets- README
+# 100 Next.js Snippets
 
-This is the README for your extension "100-nextjs-snippets-". After writing up a brief description, we recommend including the following sections.
+![version](https://img.shields.io/badge/version-0.0.1-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+
+A collection of **100+ useful Next.js snippets** designed to speed up your development workflow. This extension provides quick, easy access to frequently used Next.js code structures.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Fast Next.js Boilerplate**: Generate common Next.js components with a few keystrokes.
+- **Routing Snippets**: Quickly scaffold out dynamic routes, links, and navigation.
+- **Data Fetching Helpers**: Snippets for `getStaticProps`, `getServerSideProps`, and more.
+- **API Routes**: Easily create new API routes in Next.js.
 
-For example if there is an image subfolder under your extension project workspace:
+## Snippets
 
-\!\[feature X\]\(images/feature-x.png\)
+Here are some of the snippets included:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### Page Component
 
-## Requirements
+```typescript
+nextPage → Creates a Next.js page with a Head component and basic structure
+```
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+```typescript
+import React from 'react';
+import Head from 'next/head';
 
-## Extension Settings
+const HomePage = () => {
+  return (
+    <>
+      <Head>
+        <title>Home Page</title>
+      </Head>
+      <div>Welcome to Next.js!</div>
+    </>
+  );
+};
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+export default HomePage;
+```
 
-For example:
+### Link Component
 
-This extension contributes the following settings:
+```typescript
+nextLink → Adds a Next.js <Link> component for navigation
+```
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+```jsx
+<Link href='/about'>
+  <a>About Page</a>
+</Link>
+```
 
-## Known Issues
+### getStaticProps
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+```typescript
+getStaticProps → Fetch data at build time using getStaticProps
+```
 
-## Release Notes
+```typescript
+export const getStaticProps = async () => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const data = await res.json();
 
-Users appreciate release notes as you update your extension.
+  return {
+    props: {
+      posts: data,
+    },
+  };
+};
+```
 
-### 1.0.0
+## Installation
 
-Initial release of ...
+1. Open **VSCode**.
+2. Go to the **Extensions** view by clicking on the Extensions icon in the Activity Bar or pressing `Ctrl+Shift+X`.
+3. Search for `100 Next.js Snippets`.
+4. Click **Install**.
 
-### 1.0.1
+## How to Use
 
-Fixed issue #.
+After installation, simply type the snippet prefix (e.g., `nextPage`, `nextLink`, `getStaticProps`) and press `Tab` to insert the snippet into your file.
 
-### 1.1.0
+You can find the full list of snippets by opening the command palette (`Ctrl+Shift+P`) and searching for "Insert Snippet".
 
-Added features X, Y, and Z.
+## Contribution
+
+If you have suggestions for new snippets or improvements, feel free to open an issue or submit a pull request on [GitHub](https://github.com/amjarmed/100-nextjs-snippets).
+
+## License
+
+This extension is licensed under the [MIT License](LICENSE).
 
 ---
 
-## Working with Markdown
+### Customization
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+- Replace the `https://github.com/amjarmed/100-nextjs-snippets` link with your actual GitHub repository.
+- Add more snippets in the "Snippets" section as needed.
+- Update version numbers and any relevant metadata based on your project.
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+### Visit Me
 
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- [Portfolio](https://www.amjarmed.com/).
