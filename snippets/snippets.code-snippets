@@ -1,15 +1,13 @@
 {
-  "nextjs-page": {
+  "nextjsPage": {
     "prefix": "nexpage",
     "body": [
       "import type { NextPage } from 'next';",
-      /* These lines are set differently for each project */
       "import HeadWrapper from '@/components/layout/HeadWrapper';",
       "import Layout from '@/components/layout/Layout';",
       "import NeedLogin from '@/components/layout/NeedLogin';",
       "",
-      /* POINT① */
-      "const ${TM_DIRECTORY/.*\\/(.)(.+)$/${1:/upcase}$2/}: NextPage = () => {",
+      "const ${1:$TM_FILENAME_BASE}: NextPage = () => {",
       "  return (",
       "    <HeadWrapper>",
       "      <NeedLogin>",
@@ -21,152 +19,12 @@
       "  );",
       "};",
       "",
-      "export default ${TM_DIRECTORY/.*\\/(.)(.+)$/${1:/upcase}$2/};"
+      "export default ${1:$TM_FILENAME_BASE};"
     ],
     "scope": "typescriptreact",
     "description": "Create a basic Next.js page component."
   },
-  "new Function Component": {
-    "prefix": "nexfc",
-    "body": [
-      "import { FC } from 'react';",
-      "",
-      "type Props = {};",
-      "const ${1:$TM_FILENAME_BASE}: FC<Props> = ({}) => {",
-      "  return <></>;",
-      "};",
-      "export default ${1:$TM_FILENAME_BASE};"
-    ],
-    "description": "Template of new FC"
-  },
-  "nextjs-api-route": {
-    "prefix": "nexapi",
-    "body": [
-      "import { NextApiRequest, NextApiResponse } from 'next';",
-      "",
-      "export default function handler(req: NextApiRequest, res: NextApiResponse) {",
-      "  res.status(200).json({ message: 'Hello, Next.js!' });",
-      "}"
-    ],
-    "description": "Create a basic Next.js API route."
-  },
-  "nextjs-getstaticprops": {
-    "prefix": "nexgetstaticprops",
-    "body": [
-      "export async function getStaticProps() {",
-      "  return {",
-      "    props: {}, // will be passed to the page component as props",
-      "  };",
-      "}"
-    ],
-    "description": "Create a getStaticProps function."
-  },
-  "nextjs-getstaticpaths": {
-    "prefix": "nexgetstaticpaths",
-    "body": [
-      "export async function getStaticPaths() {",
-      "  return {",
-      "    paths: [],",
-      "    fallback: false",
-      "  };",
-      "}"
-    ],
-    "description": "Create a getStaticPaths function."
-  },
-  "nextjs-getserversideprops": {
-    "prefix": "nexgetserversideprops",
-    "body": [
-      "export async function getServerSideProps(context) {",
-      "  return {",
-      "    props: {}, // will be passed to the page component as props",
-      "  };",
-      "}"
-    ],
-    "description": "Create a getServerSideProps function."
-  },
-  "nextjs-useeffect": {
-    "prefix": "nexuseeffect",
-    "body": [
-      "import { useEffect } from 'react';",
-      "",
-      "useEffect(() => {",
-      "  $1",
-      "}, []);"
-    ],
-    "description": "Basic useEffect hook."
-  },
-  "nextjs-usecontext": {
-    "prefix": "nexusecontext",
-    "body": [
-      "import { useContext } from 'react';",
-      "import { $1Context } from '../context/$1Context';",
-      "",
-      "const $1 = () => {",
-      "  const context = useContext($1Context);",
-      "  return <div>{context}</div>;",
-      "};"
-    ],
-    "description": "useContext hook with a custom context."
-  },
-  "nextjs-head-component": {
-    "prefix": "nexhead",
-    "body": [
-      "import Head from 'next/head';",
-      "",
-      "const $1 = () => (",
-      "  <Head>",
-      "    <title>$2</title>",
-      "    <meta name='description' content='$3' />",
-      "  </Head>",
-      ");",
-      "",
-      "export default $1;"
-    ],
-    "description": "Create a Head component for SEO."
-  },
-  "nextjs-link-component": {
-    "prefix": "nexlink",
-    "body": [
-      "import Link from 'next/link';",
-      "",
-      "<Link href='$1'>",
-      "  <a>$2</a>",
-      "</Link>"
-    ],
-    "description": "Create a Link component for Next.js navigation."
-  },
-  "nextjs-image-component": {
-    "prefix": "neximage",
-    "body": [
-      "import Image from 'next/image';",
-      "",
-      "<Image",
-      "  src='$1'",
-      "  alt='$2'",
-      "  width={$3}",
-      "  height={$4}",
-      "/>"
-    ],
-    "description": "Create a Next.js Image component with required props."
-  },
-
-  "React useState": {
-    "prefix": "nexstate",
-    "body": ["const [$1, set$2] = useState($3);"]
-  },
-  "React useEffect": {
-    "prefix": "nexuseEffect",
-    "body": ["useEffect(() => {", "  $1", "}, [$2]);"]
-  },
-  "React useCallback": {
-    "prefix": "nexuseCallback",
-    "body": ["useCallback(() => {", "  $1", "}, [$2]);"]
-  },
-  "React useMemo": {
-    "prefix": "nex-useMemo",
-    "body": ["useMemo(() => {", "  $1", "}, [$2]);"]
-  },
-  "React Function Component": {
+  "nextjsFunctionComponent": {
     "key": "reactArrowFunctionExportComponent",
     "prefix": "nexrafce",
     "body": [
@@ -183,27 +41,172 @@
     "description": "Creates a React Arrow Function Component with ES7 module system",
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  "React Function Component with Props": {
-    "key": "reactArrowFunctionExportComponent",
-    "prefix": "nexrafcep",
+
+  "nextjsApiRoute": {
+    "prefix": "nexapi",
     "body": [
-      "interface $1Props {}",
+      "import { NextApiRequest, NextApiResponse } from 'next';",
       "",
-      "const ${1:${TM_FILENAME_BASE}} = ({}: $1Props) => {",
-      "  return (",
-      "    <div>",
-      "      <h1>${1:first}</h1>",
-      "    </div>",
-      "  )",
-      "}",
-      "",
-      "export default ${1:${TM_FILENAME_BASE}}"
+      "export default function handler(req: NextApiRequest, res: NextApiResponse) {",
+      "  res.status(200).json({ message: 'Hello, Next.js!' });",
+      "}"
     ],
-    "description": "Creates a React Arrow Function Component with ES7 module system",
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "description": "Create a basic Next.js API route."
+  },
+  "nextjsGetstaticProps": {
+    "prefix": "nexgetstaticprops",
+    "body": [
+      "export async function getStaticProps() {",
+      "  return {",
+      "    props: {}, // will be passed to the page component as props",
+      "  };",
+      "}"
+    ],
+    "description": "Create a getStaticProps function."
+  },
+  "nextjsGetstaticPaths": {
+    "prefix": "nexgetstaticpaths",
+    "body": [
+      "export async function getStaticPaths() {",
+      "  return {",
+      "    paths: [],",
+      "    fallback: false",
+      "  };",
+      "}"
+    ],
+    "description": "Create a getStaticPaths function."
+  },
+  "nextjsGetserversideProps": {
+    "prefix": "nexgetserversideprops",
+    "body": [
+      "export async function getServerSideProps(context) {",
+      "  return {",
+      "    props: {}, // will be passed to the page component as props",
+      "  };",
+      "}"
+    ],
+    "description": "Create a getServerSideProps function."
+  },
+  "nextjsUseeffect": {
+    "prefix": "nexuseeffect",
+    "body": [
+      "import { useEffect } from 'react';",
+      "",
+      "useEffect(() => {",
+      "  $1",
+      "}, []);"
+    ],
+    "description": "Basic useEffect hook."
+  },
+  "nextjsUsecontext": {
+    "prefix": "nexusecontext",
+    "body": [
+      "import { useContext } from 'react';",
+      "import { $1Context } from '../context/$1Context';",
+      "",
+      "const $1 = () => {",
+      "  const context = useContext($1Context);",
+      "  return <div>{context}</div>;",
+      "};"
+    ],
+    "description": "useContext hook with a custom context."
   },
 
-  "Async React Function Component": {
+  "nextjsUseState": {
+    "prefix": "nexstate",
+    "body": ["const [$1, set$2] = useState($3);"]
+  },
+  "nextjsUseMemo": {
+    "prefix": "nex-useMemo",
+    "body": ["useMemo(() => {", "  $1", "}, [$2]);"]
+  },
+  "NextUseCallback": {
+    "prefix": "nexuseCallback",
+    "body": ["useCallback(() => {", "  $1", "}, [$2]);"]
+  },
+  "NextUseRef": {
+    "prefix": "nexurf",
+    "body": ["const ${1:ref} = useRef(${2:null});"],
+    "description": "React useRef Hook"
+  },
+  "NextjsContextAPI": {
+    "prefix": "nexcontext",
+    "body": [
+      "const ${1:Context} = React.createContext(${2:defaultValue});",
+      "",
+      "export const ${3:Provider} = ({ children }) => {",
+      "  const [${4:state}, set${5:State}] = useState(${6:initialState});",
+      "",
+      "  return (",
+      "    <${1:Context}.Provider value={{ ${4:state}, set${5:State} }}>",
+      "      {children}",
+      "    </${1:Context}.Provider>",
+      "  );",
+      "};",
+      "",
+      "export const use${1:Context} = () => useContext(${1:Context});"
+    ],
+    "description": "React Context API"
+  },
+  "React useReducer Hook": {
+    "prefix": "nexur",
+    "body": [
+      "const [${1:state}, dispatch] = useReducer(${2:reducer}, ${3:initialState});"
+    ],
+    "description": "React useReducer Hook"
+  },
+  "NextUseLayoutEffectHook": {
+    "prefix": "ule",
+    "body": [
+      "useLayoutEffect(() => {",
+      "  ${1:effect};",
+      "}, [${2:dependencies}]);"
+    ],
+    "description": "React useLayoutEffect Hook"
+  },
+  "nextjsHeadComponent": {
+    "prefix": "nexhead",
+    "body": [
+      "import Head from 'next/head';",
+      "",
+      "const $1 = () => (",
+      "  <Head>",
+      "    <title>$2</title>",
+      "    <meta name='description' content='$3' />",
+      "  </Head>",
+      ");",
+      "",
+      "export default $1;"
+    ],
+    "description": "Create a Head component for SEO."
+  },
+  "nextjsLinkComponent": {
+    "prefix": "nexlink",
+    "body": [
+      "import Link from 'next/link';",
+      "",
+      "<Link href='$1'>",
+      "  <a>$2</a>",
+      "</Link>"
+    ],
+    "description": "Create a Link component for Next.js navigation."
+  },
+  "nextjsImageComponent": {
+    "prefix": "neximage",
+    "body": [
+      "import Image from 'next/image';",
+      "",
+      "<Image",
+      "  src='$1'",
+      "  alt='$2'",
+      "  width={$3}",
+      "  height={$4}",
+      "/>"
+    ],
+    "description": "Create a Next.js Image component with required props."
+  },
+
+  "nextjsAsyncFunctionComponent": {
     "prefix": "nexarafce",
     "body": [
       "const ${1:${TM_FILENAME_BASE}} = async () => {",
@@ -217,7 +220,7 @@
       "export default ${1:${TM_FILENAME_BASE}}"
     ]
   },
-  "Async React Function Component with Props": {
+  "nextjsAsyncFunctionComponentWithProps": {
     "prefix": "nexarafcep",
     "body": [
       "interface $1Props {}",
@@ -233,19 +236,19 @@
       "export default ${1:${TM_FILENAME_BASE}}"
     ]
   },
-  "import": {
+  "nextjsImport": {
     "key": "import",
     "prefix": "neximp",
     "body": ["import ${2:second} from '${1:first}'"],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  "importDestructing": {
+  "nextjsImportDestructing": {
     "key": "importDestructing",
     "prefix": "neximd",
     "body": ["import { ${2:second} } from '${1:first}'"],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  "reduxSlice": {
+  "NextjsReduxSlice": {
     "key": "reduxSlice",
     "prefix": "nexrxslice",
     "body": [
@@ -266,5 +269,84 @@
       "export default ${1:${TM_FILENAME_BASE}}.reducer"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+  "nextjsLazyLoadingComponent": {
+    "prefix": "rll",
+    "body": [
+      "import React, { lazy, Suspense } from 'react';",
+      "",
+      "const ${1:LazyComponent} = lazy(() => import('${2:./LazyComponent}'));",
+      "",
+      "const ${3:ComponentName} = () => {",
+      "  return (",
+      "    <Suspense fallback={<div>Loading...</div>}>",
+      "      <${1:LazyComponent} />",
+      "    </Suspense>",
+      "  );",
+      "};",
+      "",
+      "export default ${3:ComponentName};"
+    ],
+    "description": "Lazy load a React component"
+  },
+  "nextjsSuspense": {
+    "prefix": "nexrsus",
+    "body": [
+      "import React, { Suspense } from 'react';",
+      "",
+      "const ${1:LazyComponent} = React.lazy(() => import('${2:./LazyComponent}'));",
+      "",
+      "const ${3:ComponentName} = () => {",
+      "  return (",
+      "    <Suspense fallback={<div>Loading...</div>}>",
+      "      <${1:LazyComponent} />",
+      "    </Suspense>",
+      "  );",
+      "};",
+      "",
+      "export default ${3:ComponentName};"
+    ],
+    "description": "React Suspense for lazy loading components"
+  },
+  "nextjsForwardRef": {
+    "prefix": "nexrfr",
+    "body": [
+      "import React, { forwardRef } from 'react';",
+      "",
+      "const ${1:ComponentName} = forwardRef((props, ref) => {",
+      "  return (",
+      "    <div ref={ref}>${2:Component Content}</div>",
+      "  );",
+      "});",
+      "",
+      "export default ${1:ComponentName};"
+    ],
+    "description": "React Forward Ref"
+  },
+  "nextjsUseImperativeHandleHook": {
+    "prefix": "uimp",
+    "body": [
+      "useImperativeHandle(ref, () => ({",
+      "  ${1:exposeMethod}: () => {",
+      "    ${2:implementation}",
+      "  },",
+      "}));"
+    ],
+    "description": "React useImperativeHandle Hook"
+  },
+  "nextjsRouterLink": {
+    "prefix": "nexrrouter",
+    "body": [
+      "import { Link } from 'react-router-dom';",
+      "",
+      "const ${1:ComponentName} = () => {",
+      "  return (",
+      "    <Link to='${2:/path}'>${3:Link Text}</Link>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:ComponentName};"
+    ],
+    "description": "React Router Link Component"
   }
 }

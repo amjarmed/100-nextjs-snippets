@@ -3,7 +3,7 @@
   "displayName": "100 Nextjs Snippets",
   "description": "A collection of 100 helpful Next.js snippets to speed up your development workflow.",
   "publisher": "amjarmed",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.93.0"
   },
