@@ -1,0 +1,23 @@
+{
+  "name": "100-nextjs-snippets-",
+  "displayName": "100 Nextjs Snippets ",
+  "description": "A collection of 100 helpful Next.js snippets to speed up your development workflow.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "\"javascript\",\"typescript\",\"reactjs\",\"nextjs\"",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  },
+  "dependencies": {
+    "100-nextjs-snippets-": "file:"
+  }
+}

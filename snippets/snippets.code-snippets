@@ -1,0 +1,88 @@
+{
+  "Basic Next.js Page Component": {
+    "prefix": "nextjs-page",
+    "body": [
+      "import React from 'react';",
+      "",
+      "const ${1:PageName} = () => {",
+      "  return (",
+      "    <div>",
+      "      <h1>${1:PageName}</h1>",
+      "      <p>This is the ${1:PageName} page.</p>",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:PageName};"
+    ],
+    "description": "Creates a basic Next.js page component."
+  },
+  "Next.js API Route": {
+    "prefix": "nextjs-api",
+    "body": [
+      "export default function handler(req, res) {",
+      "  res.status(200).json({ message: 'Hello, API!' });",
+      "}"
+    ],
+    "description": "Creates a basic Next.js API route."
+  },
+  "Next.js Dynamic Route": {
+    "prefix": "nextjs-dynamic-route",
+    "body": [
+      "export async function getStaticPaths() {",
+      "  const paths = [{ params: { id: '1' } }, { params: { id: '2' } }];",
+      "  return { paths, fallback: false };",
+      "}",
+      "",
+      "export async function getStaticProps({ params }) {",
+      "  return { props: { id: params.id } };",
+      "}",
+      "",
+      "export default function Page({ id }) {",
+      "  return <h1>Page with ID: {id}</h1>;",
+      "}"
+    ],
+    "description": "Creates a Next.js dynamic route with getStaticPaths and getStaticProps."
+  },
+  "Next.js getServerSideProps": {
+    "prefix": "nextjs-ssr",
+    "body": [
+      "export async function getServerSideProps(context) {",
+      "  const res = await fetch('https://api.example.com/data');",
+      "  const data = await res.json();",
+      "  return { props: { data } };",
+      "}",
+      "",
+      "export default function Page({ data }) {",
+      "  return (",
+      "    <div>",
+      "      <h1>Server-side Data</h1>",
+      "      <pre>{JSON.stringify(data, null, 2)}</pre>",
+      "    </div>",
+      "  );",
+      "}"
+    ],
+    "description": "Sets up server-side rendering with getServerSideProps."
+  },
+  "Next.js Head Component": {
+    "prefix": "nextjs-head",
+    "body": [
+      "import Head from 'next/head';",
+      "",
+      "export default function ${1:PageName}() {",
+      "  return (",
+      "    <>",
+      "      <Head>",
+      "        <title>${2:Page Title}</title>",
+      "        <meta name='description' content='${3:Page Description}' />",
+      "      </Head>",
+      "      <div>",
+      "        <h1>${1:PageName}</h1>",
+      "      </div>",
+      "    </>",
+      "  );",
+      "}"
+    ],
+    "description": "Creates a Next.js head component for setting meta tags and title."
+  }
+}
