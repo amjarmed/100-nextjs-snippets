@@ -65,6 +65,8 @@ All notable changes to this project will be documented in this file.
 
 [unreleased]: https://github.com/amjarmed/100-nextjs-snippets
 
+[0.0.1] : <https://github.com/amjarmed/100-nextjs-snippets/releases/tag/v0.0.1>
+
 ## [Unreleased]
 
 - Initial release
