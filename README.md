@@ -87,7 +87,7 @@ You can find the full list of snippets by opening the command palette (`Ctrl+Shi
 
 ## Contribution
 
-If you have suggestions for new snippets or improvements, feel free to open an issue or submit a pull request on [GitHub](https://github.com/your-repo/100-nextjs-snippets).
+If you have suggestions for new snippets or improvements, feel free to open an issue or submit a pull request on [GitHub](https://github.com/amjarmed/100-nextjs-snippets).
 
 ## License
 
@@ -97,6 +97,10 @@ This extension is licensed under the [MIT License](LICENSE).
 
 ### Customization
 
-- Replace the `https://github.com/your-repo/100-nextjs-snippets` link with your actual GitHub repository.
+- Replace the `https://github.com/amjarmed/100-nextjs-snippets` link with your actual GitHub repository.
 - Add more snippets in the "Snippets" section as needed.
 - Update version numbers and any relevant metadata based on your project.
+
+### Visit Me
+
+- [Portfolio](https://www.amjarmed.com/).
