@@ -1,5 +1,37 @@
 {
-  "nextjsPage": {
+  /* 
+  * ! Important Note for Contribution
+*
+   * top level name: name of the snippet (ex: "snippets name"{...}), must start with nextjs  (ex:nextjs RouterLink )
+*
+  * scope never change,"scope": "typescript,typescriptreact,javascript,javascriptreact",
+
+  * prefix: shortcut that you type in the editor to insert the snippet (start with : nex)
+
+  * body : the actual code that gets inserted into the edito0r when you use the snippet
+  
+  * description:  short explanation of what the snippet does
+
+ * use the follwing template :
+
+   "snippet name here ": {
+    "prefix": "prefixhere",
+    "body": ["content here"],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "snippets description"
+  }
+
+  * TODO: try to categories them : {
+     - REACT SNIPPETS WITH IMPORTS
+     - REACT SNIPPETS WITHOUT IMPORTS
+     - Nextjs  SNIPPETS WITH IMPORTS
+     - Nextjs  SNIPPETS WITHOUT IMPORTS
+     - OTHERS
+   }
+  
+  */
+
+  "nextjs Page": {
     "prefix": "nexpage",
     "body": [
       "import type { NextPage } from 'next';",
@@ -21,10 +53,10 @@
       "",
       "export default ${1:$TM_FILENAME_BASE};"
     ],
-    "scope": "typescriptreact",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "description": "Create a basic Next.js page component."
   },
-  "nextjsFunctionComponent": {
+  "nextjs FunctionComponent": {
     "key": "reactArrowFunctionExportComponent",
     "prefix": "nexrafce",
     "body": [
@@ -42,7 +74,7 @@
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
 
-  "nextjsApiRoute": {
+  "nextjs ApiRoute": {
     "prefix": "nexapi",
     "body": [
       "import { NextApiRequest, NextApiResponse } from 'next';",
@@ -53,7 +85,7 @@
     ],
     "description": "Create a basic Next.js API route."
   },
-  "nextjsGetstaticProps": {
+  "nextjs GetstaticProps": {
     "prefix": "nexgetstaticprops",
     "body": [
       "export async function getStaticProps() {",
@@ -64,7 +96,7 @@
     ],
     "description": "Create a getStaticProps function."
   },
-  "nextjsGetstaticPaths": {
+  "nextjs GetstaticPaths": {
     "prefix": "nexgetstaticpaths",
     "body": [
       "export async function getStaticPaths() {",
@@ -76,7 +108,7 @@
     ],
     "description": "Create a getStaticPaths function."
   },
-  "nextjsGetserversideProps": {
+  "nextjs GetserversideProps": {
     "prefix": "nexgetserversideprops",
     "body": [
       "export async function getServerSideProps(context) {",
@@ -87,7 +119,7 @@
     ],
     "description": "Create a getServerSideProps function."
   },
-  "nextjsUseeffect": {
+  "nextjs Useeffect": {
     "prefix": "nexuseeffect",
     "body": [
       "import { useEffect } from 'react';",
@@ -98,7 +130,7 @@
     ],
     "description": "Basic useEffect hook."
   },
-  "nextjsUsecontext": {
+  "nextjs Usecontext": {
     "prefix": "nexusecontext",
     "body": [
       "import { useContext } from 'react';",
@@ -112,11 +144,11 @@
     "description": "useContext hook with a custom context."
   },
 
-  "nextjsUseState": {
+  "nextjs UseState": {
     "prefix": "nexstate",
     "body": ["const [$1, set$2] = useState($3);"]
   },
-  "nextjsUseMemo": {
+  "nextjs UseMemo": {
     "prefix": "nex-useMemo",
     "body": ["useMemo(() => {", "  $1", "}, [$2]);"]
   },
@@ -129,7 +161,7 @@
     "body": ["const ${1:ref} = useRef(${2:null});"],
     "description": "React useRef Hook"
   },
-  "NextjsContextAPI": {
+  "Nextjs ContextAPI": {
     "prefix": "nexcontext",
     "body": [
       "const ${1:Context} = React.createContext(${2:defaultValue});",
@@ -148,15 +180,15 @@
     ],
     "description": "React Context API"
   },
-  "React useReducer Hook": {
+  "Nextjs UseReducer": {
     "prefix": "nexur",
     "body": [
       "const [${1:state}, dispatch] = useReducer(${2:reducer}, ${3:initialState});"
     ],
     "description": "React useReducer Hook"
   },
-  "NextUseLayoutEffectHook": {
-    "prefix": "ule",
+  "NextUseLayoutEffect": {
+    "prefix": "nexule",
     "body": [
       "useLayoutEffect(() => {",
       "  ${1:effect};",
@@ -164,7 +196,7 @@
     ],
     "description": "React useLayoutEffect Hook"
   },
-  "nextjsHeadComponent": {
+  "nextjs HeadComponent": {
     "prefix": "nexhead",
     "body": [
       "import Head from 'next/head';",
@@ -180,7 +212,7 @@
     ],
     "description": "Create a Head component for SEO."
   },
-  "nextjsLinkComponent": {
+  "nextjs LinkComponent": {
     "prefix": "nexlink",
     "body": [
       "import Link from 'next/link';",
@@ -191,7 +223,7 @@
     ],
     "description": "Create a Link component for Next.js navigation."
   },
-  "nextjsImageComponent": {
+  "nextjs ImageComponent": {
     "prefix": "neximage",
     "body": [
       "import Image from 'next/image';",
@@ -206,7 +238,7 @@
     "description": "Create a Next.js Image component with required props."
   },
 
-  "nextjsAsyncFunctionComponent": {
+  "nextjs AsyncFunctionComponent": {
     "prefix": "nexarafce",
     "body": [
       "const ${1:${TM_FILENAME_BASE}} = async () => {",
@@ -220,7 +252,7 @@
       "export default ${1:${TM_FILENAME_BASE}}"
     ]
   },
-  "nextjsAsyncFunctionComponentWithProps": {
+  "nextjs AsyncFunctionComponentWithProps": {
     "prefix": "nexarafcep",
     "body": [
       "interface $1Props {}",
@@ -236,19 +268,19 @@
       "export default ${1:${TM_FILENAME_BASE}}"
     ]
   },
-  "nextjsImport": {
+  "nextjs Import": {
     "key": "import",
     "prefix": "neximp",
     "body": ["import ${2:second} from '${1:first}'"],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  "nextjsImportDestructing": {
+  "nextjs ImportDestructing": {
     "key": "importDestructing",
     "prefix": "neximd",
     "body": ["import { ${2:second} } from '${1:first}'"],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  "NextjsReduxSlice": {
+  "Nextjs ReduxSlice": {
     "key": "reduxSlice",
     "prefix": "nexrxslice",
     "body": [
@@ -270,7 +302,7 @@
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  "nextjsLazyLoadingComponent": {
+  "nextjs LazyLoadingComponent": {
     "prefix": "rll",
     "body": [
       "import React, { lazy, Suspense } from 'react';",
@@ -289,7 +321,7 @@
     ],
     "description": "Lazy load a React component"
   },
-  "nextjsSuspense": {
+  "nextjs Suspense": {
     "prefix": "nexrsus",
     "body": [
       "import React, { Suspense } from 'react';",
@@ -308,7 +340,7 @@
     ],
     "description": "React Suspense for lazy loading components"
   },
-  "nextjsForwardRef": {
+  "nextjs ForwardRef": {
     "prefix": "nexrfr",
     "body": [
       "import React, { forwardRef } from 'react';",
@@ -323,7 +355,7 @@
     ],
     "description": "React Forward Ref"
   },
-  "nextjsUseImperativeHandleHook": {
+  "nextjs UseImperativeHandleHook": {
     "prefix": "uimp",
     "body": [
       "useImperativeHandle(ref, () => ({",
@@ -334,7 +366,7 @@
     ],
     "description": "React useImperativeHandle Hook"
   },
-  "nextjsRouterLink": {
+  "nextjs RouterLink": {
     "prefix": "nexrrouter",
     "body": [
       "import { Link } from 'react-router-dom';",
@@ -348,5 +380,243 @@
       "export default ${1:ComponentName};"
     ],
     "description": "React Router Link Component"
+  },
+  // others
+  "nextjs ListRendering ": {
+    "prefix": "nexlist",
+    "body": [
+      "import React from 'react';",
+      "const List = ({ items }) => {",
+      "return (",
+      " <ul>",
+      " {items.map(item => (",
+      "<li key={item.id}>{item.name}</li>",
+      "  ))}",
+      " </ul>",
+      " );",
+      "};",
+      "export default List;"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "Renders items in a list, mostly from an API or database, to be displayed on the user interface."
+  },
+  "nextjs Custom": {
+    "prefix": "nexCutH",
+    "body": [
+      "import { useState, useEffect } from 'react';",
+
+      "const useFetch = (url) => {",
+      "const [data, setData] = useState(null);",
+      " const [loading, setLoading] = useState(true);",
+
+      " useEffect(() => {",
+      " const fetchData = async () => {",
+      "  const response = await fetch(url);",
+      "  const data = await response.json();",
+      "  setData(data);",
+      " setLoading(false);",
+      "};",
+
+      " fetchData();",
+      "}, [url]);",
+
+      " return { data, loading };",
+      "};",
+
+      "export default useFetch;"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": " code that handles forms and input submission."
+  },
+  "nextjs Form ": {
+    "prefix": "nexForm",
+    "body": [
+      " import React, { useState } from 'react';",
+
+      "const Form = () => {",
+      "const [value, setValue] = useState('');",
+
+      " const handleChange = (e) => setValue(e.target.value);",
+
+      " const handleSubmit = (e) => {",
+      "  e.preventDefault();",
+      " // Handle form submission",
+      "};",
+
+      "return (",
+      "<form onSubmit={handleSubmit}>",
+      "  <input type='text' value={value} onChange={handleChange} />",
+      "  <button type='submit'>Submit</button>",
+      "  </form>",
+      ");",
+      "};",
+
+      "export default Form;"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": " Creates a hook for reusing stateful logic."
+  },
+  "nextjs Modal ": {
+    "prefix": "nexModl",
+    "body": [
+      "import React from 'react';",
+      "const Modal = ({ isOpen, onClose, children }) => {",
+      " return isOpen ? (",
+      " <div className='modal'>",
+      "  <div className='modal-content'>",
+      "  {children}",
+      "   <button onClick={onClose}>Close</button>",
+      "  </div>",
+      " </div>",
+      "  ) : null;",
+      "};",
+      "",
+      "export default Modal;"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": " Creates a hook for reusing stateful logic."
+  },
+  "nextjs Tab ": {
+    "prefix": "nexTab",
+    "body": [
+      "import React, { useState } from 'react';",
+      "",
+      "const Tabs = ({ tabs }) => {",
+      "const [activeTab, setActiveTab] = useState(0);",
+      "",
+      " return (",
+      "   <div className='tabs'>",
+      "  {tabs.map((tab, index) => (",
+      "   <div",
+      "   key={index}",
+      "    className={`tab ${index === activeTab ? 'active' : ''}`}",
+      "  onClick={() => setActiveTab(index)}",
+      ">",
+      "    {tab.title}",
+      "   </div>",
+      " ))}",
+      " <div className='tab-content'>{tabs[activeTab].content}</div>",
+      " </div>",
+      ");",
+      "};",
+      "",
+      "export default Tabs;"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": " A tab component for switching between different content."
+  },
+  "nextjs  Image Slider": {
+    "prefix": "nexImgSlider",
+    "body": [
+      "import React, { useState } from 'react';",
+      "",
+      "const ImageSlider = ({ images }) => {",
+      "const [currentIndex, setCurrentIndex] = useState(0);",
+      " const nextSlide = () => setCurrentIndex((prevIndex) => ",
+      "(prevIndex === images.length - 1 ? 0 : prevIndex + 1));",
+      " const prevSlide = () => setCurrentIndex((prevIndex) => (prevIndex === 0 ",
+      "images.length - 1 : prevIndex - 1));",
+      "",
+      " return (",
+      " <div className='slider'>",
+      "   <button onClick={prevSlide}>Prev</button>",
+      "  <img src={images[currentIndex]} alt='Slide' />",
+      " <button onClick={nextSlide}>Next</button>",
+      " </div>",
+      " );",
+      "};",
+      "",
+      "export default ImageSlider;"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": " An image slider for displaying multiple images."
+  },
+  "nextjs  Button  ": {
+    "prefix": "nexButton",
+    "body": [
+      "import React from 'react';",
+      "import PropTypes from 'prop-types';",
+      "",
+      "const Button = ({ type, className, children, ...props }) => {",
+      " return (",
+      " <button",
+      "  type={type}",
+      " className={className}",
+      " {...props}",
+      " >",
+      "  {children}",
+      " </button>",
+      ");",
+      "};",
+      "",
+      "Button.propTypes = {",
+      " type: PropTypes.oneOf(['button', 'submit', 'reset']),",
+      " className: PropTypes.string,",
+      " children: PropTypes.node.isRequired,",
+      "};",
+      "",
+      "Button.defaultProps = {",
+      "type: 'button',",
+      "className: '',",
+      "};",
+      "",
+      "export default Button;"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "Reusable button component in React code, ."
+  },
+  "nextjs  Loading Spinner  ": {
+    "prefix": "nexSpinner",
+    "body": [
+      "import React from 'react';",
+      "",
+      "const Spinner = ({ size, color }) => {",
+      "const spinnerStyle = {",
+      "  width: size,",
+      " height: size,",
+      " borderTopColor: color,",
+      " borderLeftColor: 'transparent',",
+      " animation: 'spin 1s linear infinite',",
+      " borderWidth: '2px',",
+      " borderStyle: 'solid',",
+      "  borderRadius: '50%',",
+      "};",
+      "",
+      " return (",
+      "  <div className='inline-block animate-spin' style={spinnerStyle}></div>",
+      ");",
+      "};",
+      "",
+      "Spinner.defaultProps = {",
+      " size: '6',",
+      " color: 'rgba(59, 130, 246, 1)',",
+      "};",
+      "",
+      "export default Spinner;"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "A reusable loading spinner to simulate a loading effect ."
+  },
+  "nextjs  Dropdown   ": {
+    "prefix": "nexDropdown",
+    "body": [
+      " import React from 'react';",
+      "",
+      "const Dropdown = ({ options, onSelect }) => {",
+      " return (",
+      "  <select onChange={(e) => onSelect(e.target.value)}>",
+      "  {options.map((option) => (",
+      "   <option key={option.value} value={option.value}>",
+      "    {option.label}",
+      "  </option>",
+      " ))}",
+      "</select>",
+      ");",
+      "};",
+      "",
+      "export default Dropdown;"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "A reusable loading spinner to simulate a loading effect ."
   }
 }
