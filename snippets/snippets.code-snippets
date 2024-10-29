@@ -2,31 +2,9 @@
   /* 
   * ! Important Note for Contribution
 *
-   * top level name: name of the snippet (ex: "snippets name"{...}), must start with nextjs  (ex:nextjs RouterLink )
-*
-  * scope never change,"scope": "typescript,typescriptreact,javascript,javascriptreact",
-
-  * prefix: shortcut that you type in the editor to insert the snippet (start with : nex)
-
-  * body : the actual code that gets inserted into the edito0r when you use the snippet
-  
-  * description:  short explanation of what the snippet does
-
- * vscode snippets learning:
- 2. Variables
-VSCode snippets support a variety of variables to make your snippets more versatile. Here are some of the most commonly used:
-- TM_FILENAME: Inserts the filename with the extension.
-- TM_DIRECTORY: Inserts the directory path of the current file.
-- TM_LINE_INDEX: Inserts the current line index.
-- CURRENT_YEAR, CURRENT_MONTH, CURRENT_DATE: Inserts the current date parts.
-- CURRENT_TIME: Inserts the current time.
-- CLIPBOARD: Inserts the current clipboard content.
-## summary 
-- ${1: ...}: Placeholder with index 1 and optional default value.
-- Variables: Dynamic values like TM_FILENAME, CURRENT_DATE, etc.
-- Choices: Dropdown choices like ${1|option1,option2|}.
-- Multi-line placeholders: Allow creating fields over multiple lines.
-
+   * top level name must start with nextjs  (ex:next | react | radux - typescript | global )
+  * scope never change.
+  * prefix: nex
 
   * TODO: 
       - snippet name :  nexUseStateSnippet
@@ -37,74 +15,6 @@ VSCode snippets support a variety of variables to make your snippets more versat
    TODO: anything new mast add name her first
 
 
-########### REACTJS SNIPPETS #############
-   - reactjs UseEffect
-   - reactjs UseContext
-   - reactjs UseState
-   - reactjs UseMemo
-   - reactjs UseCallback
-   - reactjs UseRef
-   - reactjs ContextAPI
-   - reeactjs UseReducer
-   - react UseLayoutEffect
-
-
-########### NEXTJS SNIPPETS #############
-- nextjs ApiRoute
-- nextjs GetstaticProps
-- nextjs GetstaticPaths
-- nextjs GetserversideProps
-- nextjs Head Component
-- nextjs LinkComponent
-- nextjs ImageComponent
-
-########### REDUX SNIPPETS #############
-  - reduxjs ReduxSlice
-
-########### TypeScript SNIPPETS #############
-
-########### GLOBAL SNIPPETS #############
-  - next page
-  - react FC component
-  - reactArrowFunctionExportComponent
-  - Custom Hook cumponent
-  - List Rendering 
-  - form Rendring
-  - form component
-  - Modal component
-  - Tab component
-  - Image slider component
-  - Button Component
-  - loading spinner component
-  - Dropdown component
-
- 
-
-
-  ------------------------
-   - nextjs AsyncFunctionComponent
-   - nextjs AsyncFunctionComponentWithProps
-   - nextjs Import statment
-   - nextjs Import Destructing {}
-   - react Lazy Loading Component
-   - react Suspense
-   - react ForwardRef
-   - nextjs UseImperativeHandleHook
-   - react RouterLink (react-router-dom)
- 
-
-  */
-  /* 
-    "nextjs Import": {
-      "key": "import",
-      "prefix": "neximp",
-      "body": [
-        "import ${2:second} from '${1:first}'"
-      ],
-      "scope": "typescript,typescriptreact,javascript,javascriptreact",
-      "description": "import statement  ."
-    },
-  
   */
   /*  ########### REACT SNIPPETS #############  */
   "React Router Link Component": {
@@ -406,7 +316,6 @@ VSCode snippets support a variety of variables to make your snippets more versat
     "description": "A reusable function for creating a Redux Slice, which contains a reducer and action creators for managing a specific piece of state in a Redux store."
   },
   /* ########### TypeScript SNIPPETS ############# */
-  /*  ########### GLOBAL SNIPPETS #############  */
   "Import statement resourses": {
     "prefix": "nexImport",
     "body": [
@@ -423,6 +332,7 @@ VSCode snippets support a variety of variables to make your snippets more versat
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "description": "import statement  {a,b} from 'c'."
   },
+  /*  ########### GLOBAL SNIPPETS #############  */
   "FC React Function Component ": {
     "prefix": "nexFc",
     "body": [
