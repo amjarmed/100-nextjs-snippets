@@ -12,298 +12,143 @@
   
   * description:  short explanation of what the snippet does
 
- * use the follwing template :
+ * vscode snippets learning:
+ 2. Variables
+VSCode snippets support a variety of variables to make your snippets more versatile. Here are some of the most commonly used:
+- TM_FILENAME: Inserts the filename with the extension.
+- TM_DIRECTORY: Inserts the directory path of the current file.
+- TM_LINE_INDEX: Inserts the current line index.
+- CURRENT_YEAR, CURRENT_MONTH, CURRENT_DATE: Inserts the current date parts.
+- CURRENT_TIME: Inserts the current time.
+- CLIPBOARD: Inserts the current clipboard content.
+## summary 
+- ${1: ...}: Placeholder with index 1 and optional default value.
+- Variables: Dynamic values like TM_FILENAME, CURRENT_DATE, etc.
+- Choices: Dropdown choices like ${1|option1,option2|}.
+- Multi-line placeholders: Allow creating fields over multiple lines.
 
-   "snippet name here ": {
-    "prefix": "prefixhere",
-    "body": ["content here"],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "description": "snippets description"
-  }
 
-  * TODO: try to categories them : {
-     - REACT SNIPPETS WITH IMPORTS
-     - REACT SNIPPETS WITHOUT IMPORTS
-     - Nextjs  SNIPPETS WITH IMPORTS
-     - Nextjs  SNIPPETS WITHOUT IMPORTS
-     - OTHERS
-   }
+  * TODO: 
+      - snippet name :  nexUseStateSnippet
+      - component name: nexArrowExportComponent
+      - redux name: nexReduxSlice
+      - global name: nexList
+
+   TODO: anything new mast add name her first
+
+
+########### REACTJS SNIPPETS #############
+   - reactjs UseEffect
+   - reactjs UseContext
+   - reactjs UseState
+   - reactjs UseMemo
+   - reactjs UseCallback
+   - reactjs UseRef
+   - reactjs ContextAPI
+   - reeactjs UseReducer
+   - react UseLayoutEffect
+
+
+########### NEXTJS SNIPPETS #############
+- nextjs ApiRoute
+- nextjs GetstaticProps
+- nextjs GetstaticPaths
+- nextjs GetserversideProps
+- nextjs Head Component
+- nextjs LinkComponent
+- nextjs ImageComponent
+
+########### REDUX SNIPPETS #############
+  - reduxjs ReduxSlice
+
+########### TypeScript SNIPPETS #############
+
+########### GLOBAL SNIPPETS #############
+  - next page
+  - react FC component
+  - reactArrowFunctionExportComponent
+  - Custom Hook cumponent
+  - List Rendering 
+  - form Rendring
+  - form component
+  - Modal component
+  - Tab component
+  - Image slider component
+  - Button Component
+  - loading spinner component
+  - Dropdown component
+
+ 
+
+
+  ------------------------
+   - nextjs AsyncFunctionComponent
+   - nextjs AsyncFunctionComponentWithProps
+   - nextjs Import statment
+   - nextjs Import Destructing {}
+   - react Lazy Loading Component
+   - react Suspense
+   - react ForwardRef
+   - nextjs UseImperativeHandleHook
+   - react RouterLink (react-router-dom)
+ 
+
+  */
+  /* 
+    "nextjs Import": {
+      "key": "import",
+      "prefix": "neximp",
+      "body": [
+        "import ${2:second} from '${1:first}'"
+      ],
+      "scope": "typescript,typescriptreact,javascript,javascriptreact",
+      "description": "import statement  ."
+    },
   
   */
-
-  "nextjs Page": {
-    "prefix": "nexpage",
+  /*  ########### REACT SNIPPETS #############  */
+  "React Router Link Component": {
+    "prefix": "nexRouterLinkComponent",
     "body": [
-      "import type { NextPage } from 'next';",
-      "import HeadWrapper from '@/components/layout/HeadWrapper';",
-      "import Layout from '@/components/layout/Layout';",
-      "import NeedLogin from '@/components/layout/NeedLogin';",
+      "import { Link } from 'react-router-dom';",
       "",
-      "const ${1:$TM_FILENAME_BASE}: NextPage = () => {",
+      "const ${TM_FILENAME_BASE:} = () => {",
       "  return (",
-      "    <HeadWrapper>",
-      "      <NeedLogin>",
-      "        <Layout>",
-      "          <main></main>",
-      "        </Layout>",
-      "      </NeedLogin>",
-      "    </HeadWrapper>",
+      "    <Link to='${2:/path}'>${2:Link Text}</Link>",
       "  );",
       "};",
       "",
-      "export default ${1:$TM_FILENAME_BASE};"
+      "export default ${TM_FILENAME_BASE};"
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "description": "Create a basic Next.js page component."
+    "description": "React Router Link Component"
   },
-  "nextjs FunctionComponent": {
-    "key": "reactArrowFunctionExportComponent",
-    "prefix": "nexrafce",
+  "react useImperativeHandle": {
+    "prefix": "nexUseImperativeHandle",
     "body": [
-      "const ${1:${TM_FILENAME_BASE}} = () => {",
-      "  return (",
-      "    <div>",
-      "      <h1>${1:first}</h1>",
-      "    </div>",
-      "  )",
-      "}",
-      "",
-      "export default ${1:${TM_FILENAME_BASE}}"
+      " // call and import from component or custom hook ",
+      "useImperativeHandle(ref, () => ({",
+      "  ${1:exposeMethod}: () => {",
+      "    ${2:implementation}",
+      "  },",
+      "}));"
     ],
-    "description": "Creates a React Arrow Function Component with ES7 module system",
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "description": "React useImperativeHandle Hook : call and import from component or custom hook"
   },
-
-  "nextjs ApiRoute": {
-    "prefix": "nexapi",
+  "react ForwardRef": {
+    "prefix": "nexForwardRef",
     "body": [
-      "import { NextApiRequest, NextApiResponse } from 'next';",
-      "",
-      "export default function handler(req: NextApiRequest, res: NextApiResponse) {",
-      "  res.status(200).json({ message: 'Hello, Next.js!' });",
-      "}"
+      "import React, { forwardRef } from 'react';",
+      "const ${TM_FILENAME_BASE}: React.FC = forwardRef<HTMLDivElement>((props, ref) => {",
+      "return <div ref={ref",
+      "   }>Component Content</div>;",
+      " });",
+      "${TM_FILENAME_BASE}.displayName = '${TM_FILENAME_BASE}'",
+      "export default ${TM_FILENAME_BASE};"
     ],
-    "description": "Create a basic Next.js API route."
+    "description": "React Forward Ref"
   },
-  "nextjs GetstaticProps": {
-    "prefix": "nexgetstaticprops",
-    "body": [
-      "export async function getStaticProps() {",
-      "  return {",
-      "    props: {}, // will be passed to the page component as props",
-      "  };",
-      "}"
-    ],
-    "description": "Create a getStaticProps function."
-  },
-  "nextjs GetstaticPaths": {
-    "prefix": "nexgetstaticpaths",
-    "body": [
-      "export async function getStaticPaths() {",
-      "  return {",
-      "    paths: [],",
-      "    fallback: false",
-      "  };",
-      "}"
-    ],
-    "description": "Create a getStaticPaths function."
-  },
-  "nextjs GetserversideProps": {
-    "prefix": "nexgetserversideprops",
-    "body": [
-      "export async function getServerSideProps(context) {",
-      "  return {",
-      "    props: {}, // will be passed to the page component as props",
-      "  };",
-      "}"
-    ],
-    "description": "Create a getServerSideProps function."
-  },
-  "nextjs Useeffect": {
-    "prefix": "nexuseeffect",
-    "body": [
-      "import { useEffect } from 'react';",
-      "",
-      "useEffect(() => {",
-      "  $1",
-      "}, []);"
-    ],
-    "description": "Basic useEffect hook."
-  },
-  "nextjs Usecontext": {
-    "prefix": "nexusecontext",
-    "body": [
-      "import { useContext } from 'react';",
-      "import { $1Context } from '../context/$1Context';",
-      "",
-      "const $1 = () => {",
-      "  const context = useContext($1Context);",
-      "  return <div>{context}</div>;",
-      "};"
-    ],
-    "description": "useContext hook with a custom context."
-  },
-
-  "nextjs UseState": {
-    "prefix": "nexstate",
-    "body": ["const [$1, set$2] = useState($3);"]
-  },
-  "nextjs UseMemo": {
-    "prefix": "nex-useMemo",
-    "body": ["useMemo(() => {", "  $1", "}, [$2]);"]
-  },
-  "NextUseCallback": {
-    "prefix": "nexuseCallback",
-    "body": ["useCallback(() => {", "  $1", "}, [$2]);"]
-  },
-  "NextUseRef": {
-    "prefix": "nexurf",
-    "body": ["const ${1:ref} = useRef(${2:null});"],
-    "description": "React useRef Hook"
-  },
-  "Nextjs ContextAPI": {
-    "prefix": "nexcontext",
-    "body": [
-      "const ${1:Context} = React.createContext(${2:defaultValue});",
-      "",
-      "export const ${3:Provider} = ({ children }) => {",
-      "  const [${4:state}, set${5:State}] = useState(${6:initialState});",
-      "",
-      "  return (",
-      "    <${1:Context}.Provider value={{ ${4:state}, set${5:State} }}>",
-      "      {children}",
-      "    </${1:Context}.Provider>",
-      "  );",
-      "};",
-      "",
-      "export const use${1:Context} = () => useContext(${1:Context});"
-    ],
-    "description": "React Context API"
-  },
-  "Nextjs UseReducer": {
-    "prefix": "nexur",
-    "body": [
-      "const [${1:state}, dispatch] = useReducer(${2:reducer}, ${3:initialState});"
-    ],
-    "description": "React useReducer Hook"
-  },
-  "NextUseLayoutEffect": {
-    "prefix": "nexule",
-    "body": [
-      "useLayoutEffect(() => {",
-      "  ${1:effect};",
-      "}, [${2:dependencies}]);"
-    ],
-    "description": "React useLayoutEffect Hook"
-  },
-  "nextjs HeadComponent": {
-    "prefix": "nexhead",
-    "body": [
-      "import Head from 'next/head';",
-      "",
-      "const $1 = () => (",
-      "  <Head>",
-      "    <title>$2</title>",
-      "    <meta name='description' content='$3' />",
-      "  </Head>",
-      ");",
-      "",
-      "export default $1;"
-    ],
-    "description": "Create a Head component for SEO."
-  },
-  "nextjs LinkComponent": {
-    "prefix": "nexlink",
-    "body": [
-      "import Link from 'next/link';",
-      "",
-      "<Link href='$1'>",
-      "  <a>$2</a>",
-      "</Link>"
-    ],
-    "description": "Create a Link component for Next.js navigation."
-  },
-  "nextjs ImageComponent": {
-    "prefix": "neximage",
-    "body": [
-      "import Image from 'next/image';",
-      "",
-      "<Image",
-      "  src='$1'",
-      "  alt='$2'",
-      "  width={$3}",
-      "  height={$4}",
-      "/>"
-    ],
-    "description": "Create a Next.js Image component with required props."
-  },
-
-  "nextjs AsyncFunctionComponent": {
-    "prefix": "nexarafce",
-    "body": [
-      "const ${1:${TM_FILENAME_BASE}} = async () => {",
-      "  return (",
-      "    <div>",
-      "      <h1>${1:first}</h1>",
-      "    </div>",
-      "  )",
-      "}",
-      "",
-      "export default ${1:${TM_FILENAME_BASE}}"
-    ]
-  },
-  "nextjs AsyncFunctionComponentWithProps": {
-    "prefix": "nexarafcep",
-    "body": [
-      "interface $1Props {}",
-      "",
-      "const ${1:${TM_FILENAME_BASE}} = async ({}: $1Props) => {",
-      "  return (",
-      "    <div>",
-      "      <h1>${1:first}</h1>",
-      "    </div>",
-      "  )",
-      "}",
-      "",
-      "export default ${1:${TM_FILENAME_BASE}}"
-    ]
-  },
-  "nextjs Import": {
-    "key": "import",
-    "prefix": "neximp",
-    "body": ["import ${2:second} from '${1:first}'"],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
-  },
-  "nextjs ImportDestructing": {
-    "key": "importDestructing",
-    "prefix": "neximd",
-    "body": ["import { ${2:second} } from '${1:first}'"],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
-  },
-  "Nextjs ReduxSlice": {
-    "key": "reduxSlice",
-    "prefix": "nexrxslice",
-    "body": [
-      "import { createSlice } from '@reduxjs/toolkit'",
-      "",
-      "const initialState = {",
-      "  ${3}",
-      "}",
-      "",
-      "const ${1:${TM_FILENAME_BASE}} = createSlice({",
-      "  name: '${2:second}',",
-      "  initialState,",
-      "  reducers: {}",
-      "});",
-      "",
-      "export const {} = ${1:${TM_FILENAME_BASE}}.actions",
-      "",
-      "export default ${1:${TM_FILENAME_BASE}}.reducer"
-    ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
-  },
-  "nextjs LazyLoadingComponent": {
-    "prefix": "rll",
+  "react Lazy Loading Component": {
+    "prefix": "nexLazyLoadingComponent",
     "body": [
       "import React, { lazy, Suspense } from 'react';",
       "",
@@ -321,218 +166,351 @@
     ],
     "description": "Lazy load a React component"
   },
-  "nextjs Suspense": {
-    "prefix": "nexrsus",
+  "react lazy loading Suspense": {
+    "prefix": "nexLazyLoading",
     "body": [
-      "import React, { Suspense } from 'react';",
-      "",
-      "const ${1:LazyComponent} = React.lazy(() => import('${2:./LazyComponent}'));",
-      "",
-      "const ${3:ComponentName} = () => {",
-      "  return (",
       "    <Suspense fallback={<div>Loading...</div>}>",
-      "      <${1:LazyComponent} />",
+      "      <LazyComponent />",
       "    </Suspense>",
-      "  );",
-      "};",
-      "",
-      "export default ${3:ComponentName};"
     ],
     "description": "React Suspense for lazy loading components"
   },
-  "nextjs ForwardRef": {
-    "prefix": "nexrfr",
+  "react ContextAPI Component": {
+    "prefix": "nexContextAPIComponent",
     "body": [
-      "import React, { forwardRef } from 'react';",
+      "import React, { useState, useContext } from 'react';",
       "",
-      "const ${1:ComponentName} = forwardRef((props, ref) => {",
+      "const ${1:defaultValue} = {}; // Define the default value",
+      "const ${2:initialState} = {}; // Define the initial state",
+      "const ${3:AppContext} = React.createContext(${1:defaultValue});// the context object.",
+      "",
+      "//the provider component that wraps around other components to give them access to the context’s values",
+      "export const ${4:Provider} = ({ children } : { children: React.ReactElement }) => {",
+      "  const [${5:state}, set${6:State}] = useState(${2:initialState});",
+      "",
       "  return (",
-      "    <div ref={ref}>${2:Component Content}</div>",
+      "    <${3:AppContext}.Provider value={{ ${5:state}, set${6:State} }}>",
+      "      {children}",
+      "    </${3:AppContext}.Provider>",
       "  );",
+      "};",
+      "",
+      "//is a custom hook that provides easy access to AppContext values.",
+      "export const useApp${3:Context} = () => useContext(${3:AppContext});"
+    ],
+    "description": "React Context API : wraps children with the global state context"
+  },
+  //TODO: THIS MUST UPDATE
+  "Import React": {
+    "prefix": "nexImportReact",
+    "body": [
+      "import React, { ${1|useState,useEffect,useContext|} } from 'react';"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "Imports React  with a selectable hook"
+  },
+  "react useMemo": {
+    "prefix": "nexUseMemo",
+    "body": [
+      "useMemo(() => {",
+      "  $1",
+      "}, [$2]);"
+    ]
+  },
+  "react useCallback": {
+    "prefix": "nexUseCallback",
+    "body": [
+      "useCallback(() => {",
+      "  $1",
+      "}, [$2]);"
+    ]
+  },
+  "react useRef": {
+    "prefix": "nexUseRef",
+    "body": [
+      "const ${1:ref} = useRef(${2:null});"
+    ],
+    "description": "React useRef Hook"
+  },
+  "react UseReducer": {
+    "prefix": "nexUseReducer",
+    "body": [
+      "const [${1:state}, dispatch] = useReducer(${2:reducer}, ${3:initialState});"
+    ],
+    "description": "React useReducer Hook"
+  },
+  "react UseLayoutEffect": {
+    "prefix": "nexUseLayoutEffect",
+    "body": [
+      "useLayoutEffect(() => {",
+      "  ${1:effect};",
+      "}, [${2:dependencies}]);"
+    ],
+    "description": "React useLayoutEffect Hook"
+  },
+  "react UseEffect": {
+    "prefix": "nexUseEffect",
+    "body": [
+      "useEffect(() => { $1}, []);"
+    ],
+    "description": " React useEffect hook."
+  },
+  "react UseContext": {
+    "prefix": "nexUseContext",
+    "body": [
+      "",
+      "const $1 = () => {",
+      "//hint: import Your CustomContext  '../context/CustomContext'",
+      "  const context = useContext($1CustomContext);",
+      "  return <div>{context}</div>;",
+      "};"
+    ],
+    "description": "useContext hook with a custom context."
+  },
+  "react UseState": {
+    "prefix": "nexUseState",
+    "body": [
+      "const [$1, set$2] = useState($3);"
+    ]
+  },
+  /*  ########### NEXTJS SNIPPETS #############  */
+  "next Api Route": {
+    "prefix": "nexApiRoute",
+    "body": [
+      "import { NextApiRequest, NextApiResponse } from 'next';",
+      "",
+      "export default function handler(req: NextApiRequest, res: NextApiResponse) {",
+      "  res.status(200).json({ message: 'Hello, Next.js!' });",
+      "}"
+    ],
+    "description": "Handles an incoming request and sends back a response"
+  },
+  "Async Component": {
+    "prefix": "nexAsyncComponent",
+    "body": [
+      "const ${1:${TM_FILENAME_BASE}} = async () => {",
+      "  return (<div> ${1:first}</div>)",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "A reusable Async component that renders .",
+  },
+  "Async Component With Props": {
+    "prefix": "nexAsyncComponentWithProps",
+    "body": [
+      "interface $1Props { name:string}",
+      "",
+      "const ${1:${TM_FILENAME_BASE}} = async ({name='$1'}: $1Props) => {",
+      "  return (<div>${1:first}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}"
+    ]
+  },
+  "next Link": {
+    "prefix": "nexlink",
+    "body": [
+      "<Link href='$1'>",
+      "  <span>$2</span>",
+      "</Link>"
+    ],
+    "description": "Create a nextjs Link  navigation."
+  },
+  "next Image": {
+    "prefix": "nexImage",
+    "body": [
+      "",
+      "<Image",
+      "  src='$1'",
+      "  alt='$2'",
+      "  width={$3}",
+      "  height={$4}",
+      "/>"
+    ],
+    "description": "Create a Next.js Image component with required props."
+  },
+  "next Head Component": {
+    "prefix": "nexHeadComponent",
+    "body": [
+      "import Head from 'next/head';",
+      "",
+      "const ${1:${TM_FILENAME_BASE}}= () => (",
+      "  <Head>",
+      "    <title>$2</title>",
+      "    <meta name='description' content='$3' />",
+      "  </Head>",
+      ");",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}};"
+    ],
+    "description": "Create a Head component for SEO."
+  },
+  "next Get static Props": {
+    "prefix": "nexGetstaticProps",
+    "body": [
+      "export async function getStaticProps() {",
+      "  return {",
+      "    props: {}, // will be passed to the page component as props",
+      "  };",
+      "}"
+    ],
+    "description": "Create a getStaticProps function."
+  },
+  "next Get static Paths": {
+    "prefix": "nexGetstaticPaths",
+    "body": [
+      "export async function getStaticPaths() {",
+      "  return {",
+      "    paths: [],",
+      "    fallback: false",
+      "  };",
+      "}"
+    ],
+    "description": "Create a getStaticPaths function."
+  },
+  "next Get server side Props": {
+    "prefix": "nexGetserversideProps",
+    "body": [
+      "export async function getServerSideProps(context) {",
+      "  return {",
+      "    props: {}, // will be passed to the page component as props",
+      "  };",
+      "}"
+    ],
+    "description": "Create a getServerSideProps function."
+  },
+  /*  ########### REDUX SNIPPETS #############  */
+  "Redux ReduxSlice": {
+    "prefix": "nexReduxSlice",
+    "body": [
+      "import { createSlice } from '@reduxjs/toolkit'",
+      "",
+      "const initialState = {",
+      "  ${3}",
+      "}",
+      "",
+      "const ${1:${TM_FILENAME_BASE}} = createSlice({",
+      "  name: '${2:second}',",
+      "  initialState,",
+      "  reducers: {}",
       "});",
       "",
-      "export default ${1:ComponentName};"
-    ],
-    "description": "React Forward Ref"
-  },
-  "nextjs UseImperativeHandleHook": {
-    "prefix": "uimp",
-    "body": [
-      "useImperativeHandle(ref, () => ({",
-      "  ${1:exposeMethod}: () => {",
-      "    ${2:implementation}",
-      "  },",
-      "}));"
-    ],
-    "description": "React useImperativeHandle Hook"
-  },
-  "nextjs RouterLink": {
-    "prefix": "nexrrouter",
-    "body": [
-      "import { Link } from 'react-router-dom';",
+      "export const {} = ${1:${TM_FILENAME_BASE}}.actions",
       "",
-      "const ${1:ComponentName} = () => {",
+      "export default ${1:${TM_FILENAME_BASE}}.reducer"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "A reusable function for creating a Redux Slice, which contains a reducer and action creators for managing a specific piece of state in a Redux store."
+  },
+  /* ########### TypeScript SNIPPETS ############# */
+  /*  ########### GLOBAL SNIPPETS #############  */
+  "Import statement resourses": {
+    "prefix": "nexImport",
+    "body": [
+      "import ${2:second} from '${1:first}'"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "import Reactjs resources  statement"
+  },
+  "Import Destructing resourses": {
+    "prefix": "nexImportDestructing",
+    "body": [
+      "import { ${2:second} } from '${1:first}'"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "import statement  {a,b} from 'c'."
+  },
+  "FC React Function Component ": {
+    "prefix": "nexFc",
+    "body": [
+      "import { FC } from 'react';",
+      "interface ${TM_FILENAME_BASE} {",
+      " $1",
+      "}",
+      "const $TM_FILENAME_BASE: FC<${TM_FILENAME_BASE}> = ($2)=> {",
+      " return <div>$TM_FILENAME_BASE</div>;",
+      "};",
+      "export default $TM_FILENAME_BASE;",
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "typescriptreact React Function Component"
+  },
+  "Page Component": {
+    "prefix": "nexPage",
+    "body": [
+      "import React from 'react';",
+      "const ${1:${TM_FILENAME}} = () => {",
       "  return (",
-      "    <Link to='${2:/path}'>${3:Link Text}</Link>",
+      "    <div>",
+      "      <h1>${1:${TM_FILENAME}} Page</h1>",
+      "    </div>",
       "  );",
       "};",
-      "",
-      "export default ${1:ComponentName};"
+      "export default ${1:${TM_FILENAME}};"
     ],
-    "description": "React Router Link Component"
+    "description": "Template for a Next.js page"
   },
-  // others
-  "nextjs ListRendering ": {
-    "prefix": "nexlist",
+  "Dropdown Component": {
+    "prefix": "nexDropdownComponent",
     "body": [
-      "import React from 'react';",
-      "const List = ({ items }) => {",
-      "return (",
-      " <ul>",
-      " {items.map(item => (",
-      "<li key={item.id}>{item.name}</li>",
-      "  ))}",
-      " </ul>",
-      " );",
-      "};",
-      "export default List;"
-    ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "description": "Renders items in a list, mostly from an API or database, to be displayed on the user interface."
-  },
-  "nextjs Custom": {
-    "prefix": "nexCutH",
-    "body": [
-      "import { useState, useEffect } from 'react';",
-
-      "const useFetch = (url) => {",
-      "const [data, setData] = useState(null);",
-      " const [loading, setLoading] = useState(true);",
-
-      " useEffect(() => {",
-      " const fetchData = async () => {",
-      "  const response = await fetch(url);",
-      "  const data = await response.json();",
-      "  setData(data);",
-      " setLoading(false);",
-      "};",
-
-      " fetchData();",
-      "}, [url]);",
-
-      " return { data, loading };",
-      "};",
-
-      "export default useFetch;"
-    ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "description": " code that handles forms and input submission."
-  },
-  "nextjs Form ": {
-    "prefix": "nexForm",
-    "body": [
-      " import React, { useState } from 'react';",
-
-      "const Form = () => {",
-      "const [value, setValue] = useState('');",
-
-      " const handleChange = (e) => setValue(e.target.value);",
-
-      " const handleSubmit = (e) => {",
-      "  e.preventDefault();",
-      " // Handle form submission",
-      "};",
-
-      "return (",
-      "<form onSubmit={handleSubmit}>",
-      "  <input type='text' value={value} onChange={handleChange} />",
-      "  <button type='submit'>Submit</button>",
-      "  </form>",
-      ");",
-      "};",
-
-      "export default Form;"
-    ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "description": " Creates a hook for reusing stateful logic."
-  },
-  "nextjs Modal ": {
-    "prefix": "nexModl",
-    "body": [
-      "import React from 'react';",
-      "const Modal = ({ isOpen, onClose, children }) => {",
-      " return isOpen ? (",
-      " <div className='modal'>",
-      "  <div className='modal-content'>",
-      "  {children}",
-      "   <button onClick={onClose}>Close</button>",
-      "  </div>",
-      " </div>",
-      "  ) : null;",
-      "};",
-      "",
-      "export default Modal;"
-    ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "description": " Creates a hook for reusing stateful logic."
-  },
-  "nextjs Tab ": {
-    "prefix": "nexTab",
-    "body": [
-      "import React, { useState } from 'react';",
-      "",
-      "const Tabs = ({ tabs }) => {",
-      "const [activeTab, setActiveTab] = useState(0);",
-      "",
+      " import React from 'react';",
+      "export interface DropdownProps {",
+      "options: { value: string; label: string}[];",
+      "onSelect: (value: string) => void;}",
+      "const Dropdown = ({ options, onSelect }: DropdownProps) => {",
       " return (",
-      "   <div className='tabs'>",
-      "  {tabs.map((tab, index) => (",
-      "   <div",
-      "   key={index}",
-      "    className={`tab ${index === activeTab ? 'active' : ''}`}",
-      "  onClick={() => setActiveTab(index)}",
-      ">",
-      "    {tab.title}",
-      "   </div>",
+      "  <select onChange={(e) => onSelect(e.target.value)}>",
+      "  {options.map((option) => (",
+      "   <option key={option.value} value={option.value}>",
+      "    {option.label}",
+      "  </option>",
       " ))}",
-      " <div className='tab-content'>{tabs[activeTab].content}</div>",
-      " </div>",
+      "</select>",
       ");",
       "};",
       "",
-      "export default Tabs;"
+      "export default Dropdown;"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "description": " A tab component for switching between different content."
+    "description": "A reusable loading spinner to simulate a loading effect ."
   },
-  "nextjs  Image Slider": {
-    "prefix": "nexImgSlider",
+  "Loading Spinner Component": {
+    "prefix": "nexSpinnerComponent",
     "body": [
-      "import React, { useState } from 'react';",
+      "import React from 'react';",
       "",
-      "const ImageSlider = ({ images }) => {",
-      "const [currentIndex, setCurrentIndex] = useState(0);",
-      " const nextSlide = () => setCurrentIndex((prevIndex) => ",
-      "(prevIndex === images.length - 1 ? 0 : prevIndex + 1));",
-      " const prevSlide = () => setCurrentIndex((prevIndex) => (prevIndex === 0 ",
-      "images.length - 1 : prevIndex - 1));",
-      "",
-      " return (",
-      " <div className='slider'>",
-      "   <button onClick={prevSlide}>Prev</button>",
-      "  <img src={images[currentIndex]} alt='Slide' />",
-      " <button onClick={nextSlide}>Next</button>",
-      " </div>",
-      " );",
+      "const Spinner = ({ size, color }) => {",
+      "const spinnerStyle = {",
+      "  width: size,",
+      " height: size,",
+      " borderTopColor: color,",
+      " borderLeftColor: 'transparent',",
+      " animation: 'spin 1s linear infinite',",
+      " borderWidth: '2px',",
+      " borderStyle: 'solid',",
+      "  borderRadius: '50%',",
       "};",
       "",
-      "export default ImageSlider;"
+      " return (",
+      "  <div className='inline-block animate-spin' style={spinnerStyle}></div>",
+      ");",
+      "};",
+      "",
+      "Spinner.defaultProps = {",
+      " size: '6',",
+      " color: 'rgba(59, 130, 246, 1)',",
+      "};",
+      "",
+      "export default Spinner;"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "description": " An image slider for displaying multiple images."
+    "description": "A reusable loading spinner to simulate a loading effect ."
   },
-  "nextjs  Button  ": {
-    "prefix": "nexButton",
+  "Button Component": {
+    "prefix": "nexButtonComponent",
     "body": [
       "import React from 'react';",
       "import PropTypes from 'prop-types';",
@@ -565,58 +543,172 @@
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "description": "Reusable button component in React code, ."
   },
-  "nextjs  Loading Spinner  ": {
-    "prefix": "nexSpinner",
+  "Slider Component": {
+    "prefix": "nexSliderComponent",
+    "body": [
+      "import Image from 'next/image';",
+      "import { useState } from 'react';",
+      "",
+      "const ImageSlider = ({ images }: { images: string[] }) => {",
+      "  const [currentIndex, setCurrentIndex] = useState(0);",
+      "",
+      "  const handleNextSlide = () => {",
+      "    setCurrentIndex((prevIndex) =>",
+      "      prevIndex === images.length - 1 ? 0 : prevIndex + 1,",
+      "    );",
+      "  };",
+      "",
+      "  const handlePrevSlide = () => {",
+      "    setCurrentIndex((prevIndex) =>",
+      "      prevIndex === 0 ? images.length - 1 : prevIndex - 1,",
+      "    );",
+      "  };",
+      "",
+      "  return (",
+      "    <div className='slider'>",
+      "      <button onClick={handlePrevSlide}>Prev</button>",
+      "      <Image src={images[currentIndex]} alt='Slide' width={200} height={200} />",
+      "      <button onClick={handleNextSlide}>Next</button>",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ImageSlider;"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "Next.js Image Slider Component with Next.js Image and React useState"
+  },
+  "Tab Component": {
+    "prefix": "nexTabComponent",
+    "body": [
+      "import React, { useState } from 'react';",
+      "",
+      "const Tabs = ({ tabs }: { tabs: { title: string; content: React.ReactNode }[] }) => {",
+      "const [activeTab, setActiveTab] = useState(0);",
+      "",
+      " return (",
+      "   <div className='tabs'>",
+      "  {tabs.map((tab, index) => (",
+      "   <div",
+      "   key={index}",
+      "    className={`tab ${index === activeTab ? 'active' : ''}`}",
+      "  onClick={() => setActiveTab(index)}",
+      ">",
+      "    {tab.title}",
+      "   </div>",
+      " ))}",
+      " <div className='tab-content'>{tabs[activeTab].content}</div>",
+      " </div>",
+      ");",
+      "};",
+      "",
+      "export default Tabs;"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": " A tab component for switching between different content."
+  },
+  "Modal Component": {
+    "prefix": "nexModalComponent",
     "body": [
       "import React from 'react';",
-      "",
-      "const Spinner = ({ size, color }) => {",
-      "const spinnerStyle = {",
-      "  width: size,",
-      " height: size,",
-      " borderTopColor: color,",
-      " borderLeftColor: 'transparent',",
-      " animation: 'spin 1s linear infinite',",
-      " borderWidth: '2px',",
-      " borderStyle: 'solid',",
-      "  borderRadius: '50%',",
+      "const Modal = ({ isOpen,onClose,children,}: {isOpen: boolean;onClose: () => void; children: React.ReactNode;}) => {",
+      " return isOpen ? (",
+      " <div className='modal'>",
+      "  <div className='modal-content'>",
+      "  {children}",
+      "   <button onClick={onClose}>Close</button>",
+      "  </div>",
+      " </div>",
+      "  ) : null;",
       "};",
       "",
-      " return (",
-      "  <div className='inline-block animate-spin' style={spinnerStyle}></div>",
-      ");",
-      "};",
-      "",
-      "Spinner.defaultProps = {",
-      " size: '6',",
-      " color: 'rgba(59, 130, 246, 1)',",
-      "};",
-      "",
-      "export default Spinner;"
+      "export default Modal;"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "description": "A reusable loading spinner to simulate a loading effect ."
+    "description": " Creates a hook for reusing stateful logic."
   },
-  "nextjs  Dropdown   ": {
-    "prefix": "nexDropdown",
+  "Form Component": {
+    "prefix": "nexFormComponent",
     "body": [
-      " import React from 'react';",
-      "",
-      "const Dropdown = ({ options, onSelect }) => {",
-      " return (",
-      "  <select onChange={(e) => onSelect(e.target.value)}>",
-      "  {options.map((option) => (",
-      "   <option key={option.value} value={option.value}>",
-      "    {option.label}",
-      "  </option>",
-      " ))}",
-      "</select>",
+      " import React, { useState } from 'react';",
+      "const Form = () => {",
+      "const [value, setValue] = useState('');",
+      " const handleChange = (e) => setValue(e.target.value);",
+      " const handleSubmit = (e) => {",
+      "  e.preventDefault();",
+      " // Handle form submission",
+      "};",
+      "return (",
+      "<form onSubmit={handleSubmit}>",
+      "  <input type='text' value={value} onChange={handleChange} />",
+      "  <button type='submit'>Submit</button>",
+      "  </form>",
       ");",
       "};",
-      "",
-      "export default Dropdown;"
+      "export default Form;"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "description": "A reusable loading spinner to simulate a loading effect ."
+    "description": " Creates a hook for reusing stateful logic."
+  },
+  "Form Rendring": {
+    "prefix": "nexForm",
+    "body": [
+      "<form onSubmit={handleSubmit}>",
+      "  <input type='text' value={value} onChange={handleChange} />",
+      "  <button type='submit'>Submit</button>",
+      "  </form>",
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": " Creates a hook for reusing stateful logic."
+  },
+  "UseFetch Custom Hook Component": {
+    "prefix": "nexUseFetchComponent",
+    "body": [
+      "import { useState, useEffect } from 'react';",
+      "//Fetches data from a given URL and stores it in component state (note: use file.ts instead of file.tsx)",
+      "const useFetch = ({ url }: { url: string }) => {",
+      "const [data, setData] = useState(null);",
+      " const [loading, setLoading] = useState(true);",
+      " useEffect(() => {",
+      " const fetchData = async () => {",
+      "  const response = await fetch(url);",
+      "  const data = await response.json();",
+      "  setData(data);",
+      " setLoading(false);",
+      "};",
+      " fetchData();",
+      "}, [url]);",
+      " return { data, loading };",
+      "};",
+      "export default useFetch;"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": " code that handles forms and input submission."
+  },
+  "List Rendering": {
+    "prefix": "nexlistRendering",
+    "body": [
+      " <ul>",
+      " {items.map(item => (",
+      "<li key={item.id}>{item.name}</li>",
+      "  ))}",
+      " </ul>",
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "Renders items in a list, mostly from an API or database, to be displayed on the user interface."
+  },
+  "Comment with Date": {
+    "prefix": "nexDatedComment",
+    "body": [
+      "// Created on ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}"
+    ],
+    "description": "Inserts a comment with the current date"
+  },
+  "Console Log": {
+    "prefix": "nexClog",
+    "body": [
+      "console.${1:log}(${2:message});"
+    ],
+    "description": "Console log with editable method and message"
   }
 }

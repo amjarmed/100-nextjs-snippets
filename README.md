@@ -29,36 +29,31 @@ Here are some of the snippets included:
 ### Page Component
 
 ```typescript
-nexpage → Creates a Next.js page with a Head component and basic structure
+nexPage → Creates a Next.js Arrow Function component
 ```
 
 ```typescript
 import React from 'react';
-import Head from 'next/head';
-
-const HomePage = () => {
+const Testing = () => {
   return (
-    <>
-      <Head>
-        <title>Home Page</title>
-      </Head>
-      <div>Welcome to Next.js!</div>
-    </>
+    <div>
+      <h1>Testing Page</h1>
+    </div>
   );
 };
-
-export default HomePage;
+export default Testing;
 ```
 
 ### Link Component
 
 ```typescript
-nexlink → Adds a Next.js <Link> component for navigation
+
+nexLink → Adds a Next.js <Link> component for navigation
 ```
 
 ```jsx
 <Link href='/about'>
-  <a>About Page</a>
+  <span>About Page</span>
 </Link>
 ```
 
