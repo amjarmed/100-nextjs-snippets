@@ -442,14 +442,14 @@ VSCode snippets support a variety of variables to make your snippets more versat
     "prefix": "nexPage",
     "body": [
       "import React from 'react';",
-      "const ${1:${TM_FILENAME}} = () => {",
+      "const ${1:${TM_FILENAME_BASE}} = () => {",
       "  return (",
       "    <div>",
-      "      <h1>${1:${TM_FILENAME}} Page</h1>",
+      "      <h1>${1:${TM_FILENAME_BASE}} Page</h1>",
       "    </div>",
       "  );",
       "};",
-      "export default ${1:${TM_FILENAME}};"
+      "export default ${1:${TM_FILENAME_BASE}};"
     ],
     "description": "Template for a Next.js page"
   },
